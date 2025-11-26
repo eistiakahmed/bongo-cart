@@ -24,6 +24,7 @@ export default function ManageProductPage() {
       try {
         const res = await axiosSecure.get(`/addProducts?email=${user.email}`);
         setProducts(res.data);
+        setLoading(false)
       } catch (err) {
         toast.error('Failed to fetch products');
       } finally {
@@ -34,7 +35,7 @@ export default function ManageProductPage() {
     fetchProducts();
   }, [user,axiosSecure]);
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  // if (!loading) return <p className="text-center mt-10">Loading...</p>;
 
   return (
     <Container>

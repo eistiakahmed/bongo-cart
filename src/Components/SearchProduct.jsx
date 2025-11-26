@@ -12,7 +12,7 @@ export default function SearchProducts({ initialData }) {
     const search_text = e.target.search.value.trim();
 
     if (!search_text) {
-      setProducts(initialData || []); // Ensure it handles null initialData gracefully
+      setProducts(initialData || []);
       return;
     }
 
@@ -47,12 +47,12 @@ export default function SearchProducts({ initialData }) {
           name="search"
           type="text"
           placeholder="Search by name..."
-          className="w-full sm:w-80 border border-gray-300 bg-gray-50 text-gray-700 py-3 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-[#092052]"
+          className="w-full sm:w-80 border border-red-300 bg-gray-50 text-red-700 py-3 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500"
         />
 
         <button
           type="submit"
-          className="border-2 buttonStyle border-[#092052] text-[#092052] font-semibold rounded-full px-8 py-3 hover:bg-[#092052] hover:text-white transition duration-300"
+          className="border-2 buttonStyle border-red-600 text-red-500 font-semibold rounded-full px-8 py-3 hover:bg-red-600 hover:text-white transition duration-300"
         >
           Search
         </button>

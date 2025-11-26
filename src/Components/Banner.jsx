@@ -19,11 +19,11 @@ export default function Banner() {
           </p>
 
           <div className="flex gap-4">
-            <Link href='/products' className="bg-black text-white font-semibold px-6 py-3 rounded hover:bg-gray-800 transition">
+            <Link href='/products' className="bg-red-500 text-white font-semibold px-6 py-3 rounded-4xl hover:bg-red-800 transition">
               Shop Now
             </Link>
 
-            <button className="border border-black text-black font-semibold px-6 py-3 rounded hover:bg-black hover:text-white transition">
+            <button className="border border-red-500 text-red-500 font-semibold px-6 py-3 rounded-4xl hover:bg-red-500 hover:text-red-600 transition">
               View Lookbook
             </button>
           </div>

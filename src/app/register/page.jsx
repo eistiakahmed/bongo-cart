@@ -53,7 +53,7 @@ export default function RegisterPage() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <Toaster />
-      <div className="bg-white shadow-2xl rounded-xl p-8 w-full max-w-md border">
+      <div className="bg-white shadow-2xl rounded-xl p-8 w-full max-w-md">
         <h2 className="text-3xl font-bold text-center mb-6 text-red-500">
           Create Account
         </h2>
