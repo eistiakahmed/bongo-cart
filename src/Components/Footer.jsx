@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className="bg-gray-900 text-gray-200">
       <footer className="w-11/12 mx-auto py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Logo & About */}
+        
         <div>
           <h1 className="text-2xl font-bold text-white mb-4">
             Bongo
@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Shop Categories */}
+        
         <div>
           <h6 className="font-bold mb-4">Shop</h6>
           <a className="block link-hover mb-2">Men</a>
@@ -32,7 +32,7 @@ export default function Footer() {
           <a className="block link-hover mb-2">Accessories</a>
         </div>
 
-        {/* Customer Service */}
+        
         <div>
           <h6 className="font-bold mb-4">Customer Service</h6>
           <a className="block link-hover mb-2">Help Center</a>
@@ -41,7 +41,7 @@ export default function Footer() {
           <a className="block link-hover mb-2">Shipping Info</a>
         </div>
 
-        {/* Company */}
+        
         <div>
           <h6 className="font-bold mb-4">Company</h6>
           <a className="block link-hover mb-2">About Us</a>
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* Bottom Copyright */}
+      
       <div className="text-center py-6 border-t border-gray-700 text-gray-500 text-sm">
         &copy; {new Date().getFullYear()} BongoCart. All rights reserved.
       </div>

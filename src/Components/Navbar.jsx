@@ -39,7 +39,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="bg-base-100 shadow-md">
+    <div className="bg-white shadow-md border-b border-gray-300">
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -82,7 +82,9 @@ export default function Navbar() {
                 src={user?.photoURL}
                 alt="User"
                 referrerPolicy="no-referrer"
-                className="w-[45px] h-[45px] rounded-full border object-cover"
+                className="w-[45px] h-[45px] rounded-full border object-cover tooltip-bottom"
+                data-tip={user?.displayName}
+                
               />
               <button
                 onClick={handleUser}

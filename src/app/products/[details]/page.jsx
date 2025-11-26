@@ -30,7 +30,6 @@ export default async function ProductDetails({ params }) {
 
   return (
     <Container>
-      {/* Back Button */}
       <div className="pt-6 pb-3">
         <Link
           href="/products"
@@ -40,9 +39,7 @@ export default async function ProductDetails({ params }) {
         </Link>
       </div>
 
-      {/* MAIN CONTENT */}
       <div className="grid lg:grid-cols-2 gap-10 py-12 px-6 md:px-12 bg-white rounded-xl">
-        {/* IMAGE */}
         <div className="">
           <div className="relative overflow-hidden rounded-xl group cursor-zoom-in">
             <img
@@ -53,7 +50,6 @@ export default async function ProductDetails({ params }) {
           </div>
         </div>
 
-        {/* DETAILS */}
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl font-bold text-gray-900 leading-snug">

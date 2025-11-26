@@ -40,10 +40,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  // const updateUserProfile = (displayName, photoURL) => {
-  //   return updateProfile(auth.currentUser, { displayName, photoURL });
-  // };
-
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);

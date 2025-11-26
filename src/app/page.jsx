@@ -2,12 +2,16 @@
 import Banner from '@/Components/Banner';
 import Features from '@/Components/Features';
 import Testimonials from '@/Components/Testimonials';
+import { AuthContext } from '@/Context/AuthContext';
 import Cards from '@/Shared/Card';
 import Container from '@/Shared/Container';
-import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import React, { useContext, useEffect, useState } from 'react';
+import { ImSpinner10 } from 'react-icons/im';
 
 export default function Home() {
   const [initialData, setInitialData] = useState([]);
+  const{loading} = useContext(AuthContext)
 
   useEffect(() => {
     fetch('https://bongo-cart.vercel.app/latest_fashion')
@@ -29,6 +33,17 @@ export default function Home() {
             {initialData.map((data) => (
               <Cards key={data._id} data={data} />
             ))}
+          </div>
+          <div className="flex justify-center items-center my-10">
+            <Link href='/products' className="btn bg-red-500 text-white">
+              {loading ? (
+                <span className='animate-spin'>
+                  <ImSpinner10 />
+                </span>
+              ) : (
+                'Explore More'
+              )}
+            </Link>
           </div>
         </div>
 

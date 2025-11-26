@@ -1,5 +1,6 @@
 'use client';
 
+import ProtectedRoute from '@/Components/ProtectedRoute';
 import { AuthContext } from '@/Context/AuthContext';
 import useAxiosSecure from '@/hooks/useAxiosSecure';
 import React, { useContext } from 'react';
@@ -45,136 +46,138 @@ export default function AddProductPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white my-10 rounded-4xl">
-      <Toaster />
-      <h1 className="text-4xl font-bold mb-4 text-center">Add New Product</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block font-medium">Title:</label>
-          <input
-            type="text"
-            name="title"
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Banner Image URL:</label>
-          <input
-            type="text"
-            name="bannerImage"
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Short Description:</label>
-          <input
-            type="text"
-            name="shortDescription"
-            className="w-full border p-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Full Description:</label>
-          <textarea
-            name="fullDescription"
-            className="w-full border p-2 rounded"
-            rows={4}
-          />
-        </div>
-        <div>
-          <label className="block font-medium mb-1">Category:</label>
-          <select
-            name="category"
-            className="w-full border p-2 rounded bg-white"
-            defaultValue=""
+    <ProtectedRoute>
+      <div className="max-w-3xl mx-auto p-6 bg-white my-10 rounded-4xl">
+        <Toaster />
+        <h1 className="text-4xl font-bold mb-4 text-center">Add New Product</h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block font-medium">Title:</label>
+            <input
+              type="text"
+              name="title"
+              className="w-full border p-2 rounded"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Banner Image URL:</label>
+            <input
+              type="text"
+              name="bannerImage"
+              className="w-full border p-2 rounded"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Short Description:</label>
+            <input
+              type="text"
+              name="shortDescription"
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Full Description:</label>
+            <textarea
+              name="fullDescription"
+              className="w-full border p-2 rounded"
+              rows={4}
+            />
+          </div>
+          <div>
+            <label className="block font-medium mb-1">Category:</label>
+            <select
+              name="category"
+              className="w-full border p-2 rounded bg-white"
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              <option value="saree">Saree</option>
+              <option value="kurti">Kurti</option>
+              <option value="lehenga">Lehenga</option>
+              <option value="salwar">Salwar</option>
+              <option value="gown">Gown</option>
+              <option value="blouse">Blouse</option>
+              <option value="dupattas">Dupattas</option>
+            </select>
+          </div>
+          <div>
+            <label className="block font-medium">Brand:</label>
+            <input
+              type="text"
+              name="brand"
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Price:</label>
+            <input
+              type="number"
+              name="price"
+              className="w-full border p-2 rounded"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Material:</label>
+            <input
+              type="text"
+              name="material"
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Wash Care:</label>
+            <input
+              type="text"
+              name="washCare"
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Origin:</label>
+            <input
+              type="text"
+              name="origin"
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Product Code:</label>
+            <input
+              type="text"
+              name="productCode"
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Date Added:</label>
+            <input
+              type="date"
+              name="dateAdded"
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Email:</label>
+            <input
+              type="email"
+              name="email"
+              defaultValue={user?.email}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-red-500 text-white px-4 py-2 hover:bg-red-600 w-full rounded-4xl font-bold"
           >
-            <option value="" disabled>
-              Select a category
-            </option>
-            <option value="saree">Saree</option>
-            <option value="kurti">Kurti</option>
-            <option value="lehenga">Lehenga</option>
-            <option value="salwar">Salwar</option>
-            <option value="gown">Gown</option>
-            <option value="blouse">Blouse</option>
-            <option value="dupattas">Dupattas</option>
-          </select>
-        </div>
-        <div>
-          <label className="block font-medium">Brand:</label>
-          <input
-            type="text"
-            name="brand"
-            className="w-full border p-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Price:</label>
-          <input
-            type="number"
-            name="price"
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Material:</label>
-          <input
-            type="text"
-            name="material"
-            className="w-full border p-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Wash Care:</label>
-          <input
-            type="text"
-            name="washCare"
-            className="w-full border p-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Origin:</label>
-          <input
-            type="text"
-            name="origin"
-            className="w-full border p-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Product Code:</label>
-          <input
-            type="text"
-            name="productCode"
-            className="w-full border p-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Date Added:</label>
-          <input
-            type="date"
-            name="dateAdded"
-            className="w-full border p-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Email:</label>
-          <input
-            type="email"
-            name="email"
-            defaultValue={user?.email}
-            className="w-full border p-2 rounded"
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-red-500 text-white px-4 py-2 hover:bg-red-600 w-full rounded-4xl font-bold"
-        >
-          Add Product
-        </button>
-      </form>
-    </div>
+            Add Product
+          </button>
+        </form>
+      </div>
+    </ProtectedRoute>
   );
 }
