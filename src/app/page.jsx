@@ -27,7 +27,7 @@ export default async function Home() {
         {/* Features Section */}
         <Features />
         {/* Newsletter Section */}
-        <div className="mt-24 bg-red-50 py-16 rounded-xl text-center">
+        <div className="mt-24 bg-red-50 py-16 rounded-xl text-center px-7">
           <h2 className="text-3xl font-bold mb-4">
             Get Exclusive Fashion Offers
           </h2>

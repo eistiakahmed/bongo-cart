@@ -3,11 +3,11 @@
 import { AuthContext } from '@/Context/AuthContext';
 import Button from '@/Shared/Button';
 import Link from 'next/link';
-import React, { use } from 'react';
+import React, { use, useContext } from 'react';
 import toast from 'react-hot-toast';
 
 export default function Navbar() {
-  const { user, logOut } = use(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleUser = () => {
     logOut()
