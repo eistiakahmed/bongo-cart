@@ -1,14 +1,21 @@
-import Banner from '@/Components/Banner'
+'use client';
+import Banner from '@/Components/Banner';
 import Features from '@/Components/Features';
 import Testimonials from '@/Components/Testimonials';
 import Cards from '@/Shared/Card';
 import Container from '@/Shared/Container';
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
-export default async function Home() {
-  const res = await fetch('http://localhost:5000/latest_fashion');
-  const initialData = await res.json()
-  console.log(initialData)
+export default function Home() {
+  const [initialData, setInitialData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://bongo-cart.vercel.app/latest_fashion')
+      .then((res) => res.json())
+      .then((data) => setInitialData(data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div>
       <Banner />
@@ -24,9 +31,9 @@ export default async function Home() {
             ))}
           </div>
         </div>
-        {/* Features Section */}
+
         <Features />
-        {/* Newsletter Section */}
+
         <div className="mt-24 bg-red-50 py-16 rounded-xl text-center px-7">
           <h2 className="text-3xl font-bold mb-4">
             Get Exclusive Fashion Offers
@@ -34,7 +41,6 @@ export default async function Home() {
           <p className="text-gray-700 mb-6">
             Subscribe to our newsletter and receive 10% off your first order!
           </p>
-
           <form className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
             <input
               type="email"
@@ -46,7 +52,7 @@ export default async function Home() {
             </button>
           </form>
         </div>
-        {/* Testimonials Section */}
+
         <Testimonials />
       </Container>
     </div>

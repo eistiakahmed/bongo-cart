@@ -4,26 +4,21 @@ import React, { useEffect, useState } from 'react';
 import Cards from '@/Shared/Card';
 
 export default function SearchProducts({ initialData }) {
-  // console.log(initialData); // Keep for debugging if needed
-
-  // Initialize state with initialData or an empty array if initialData is null/undefined
   const [products, setProducts] = useState(initialData || []);
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    // Get the search text and trim any leading/trailing whitespace
+
     const search_text = e.target.search.value.trim();
 
-    // If the search field is empty, reset products to the initial data
     if (!search_text) {
       setProducts(initialData || []); // Ensure it handles null initialData gracefully
       return;
     }
 
     try {
-      // 🚀 Fetch data from the server's search endpoint
       const res = await fetch(
-        `http://localhost:5000/searchName?search=${encodeURIComponent(
+        `https://bongo-cart.vercel.app/searchName?search=${encodeURIComponent(
           search_text
         )}`
       );
@@ -34,12 +29,10 @@ export default function SearchProducts({ initialData }) {
 
       const data = await res.json();
 
-      // 🌟 Use the data returned by the server directly.
-      // The server is expected to handle partial/relevant matching.
       setProducts(data);
     } catch (error) {
       console.error('Error fetching search results:', error);
-      // Optionally, set products to an empty array on error
+
       setProducts([]);
     }
   };
@@ -65,16 +58,13 @@ export default function SearchProducts({ initialData }) {
         </button>
       </form>
 
-      {/* Conditional rendering for products or "No Product Found" message */}
       {products.length > 0 ? (
-        // Show Products in a grid
         <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
           {products.map((product) => (
             <Cards key={product._id} data={product} />
           ))}
         </div>
       ) : (
-        // ❌ Show "No Product Found!" outside the grid for full-width display
         <p className="text-xl text-red-600 font-semibold mt-10">
           No Product Found!
         </p>

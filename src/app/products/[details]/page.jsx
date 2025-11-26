@@ -5,7 +5,7 @@ import React from 'react';
 
 export default async function ProductDetails({ params }) {
   const { details } = await params;
-  const res = await fetch(`http://localhost:5000/fashion/${details}`);
+  const res = await fetch(`https://bongo-cart.vercel.app/fashion/${details}`);
   const data = await res.json();
 
   const {
@@ -23,7 +23,7 @@ export default async function ProductDetails({ params }) {
     returnPolicy,
     productCode,
     dateAdded,
-    email
+    email,
   } = data;
 
   const currency = 'USD';

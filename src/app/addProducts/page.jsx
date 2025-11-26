@@ -2,7 +2,7 @@
 
 import useAxiosSecure from '@/hooks/useAxiosSecure';
 import React from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function AddProductPage() {
   const axiosSecure = useAxiosSecure();
@@ -42,6 +42,7 @@ export default function AddProductPage() {
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white my-10 rounded-4xl">
+      <Toaster />
       <h1 className="text-4xl font-bold mb-4 text-center">Add New Product</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

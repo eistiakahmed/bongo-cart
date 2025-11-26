@@ -4,7 +4,7 @@ import Container from '@/Shared/Container';
 import React from 'react';
 
 export default async function AllProductPage() {
-  const res = await fetch('http://localhost:5000/fashion');
+  const res = await fetch('https://bongo-cart.vercel.app/fashion');
   const initialData = await res.json();
 
   return (

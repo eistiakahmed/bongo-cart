@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user)
 
   const handleUser = () => {
     logOut()
@@ -83,7 +84,7 @@ export default function Navbar() {
                 referrerPolicy="no-referrer"
                 className="w-[45px] h-[45px] rounded-full border object-cover"
               />
-              <Button onClick={handleUser}>Logout</Button>
+              <button onClick={handleUser}>Logout</button>
             </div>
           ) : (
             <Link href="/login">
