@@ -1,11 +1,14 @@
 'use client';
 
+import { AuthContext } from '@/Context/AuthContext';
 import useAxiosSecure from '@/hooks/useAxiosSecure';
-import React from 'react';
+import React, { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function AddProductPage() {
   const axiosSecure = useAxiosSecure();
+  const { user } = useContext(AuthContext);
+  // console.log(user?.email)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -149,6 +152,7 @@ export default function AddProductPage() {
           <input
             type="email"
             name="email"
+            defaultValue={user?.email}
             className="w-full border p-2 rounded"
           />
         </div>

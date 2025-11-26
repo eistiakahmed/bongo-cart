@@ -1,8 +1,9 @@
 import Footer from '@/Components/Footer';
 import AuthProvider from '@/Context/AuthProvider';
-import Navbar from '@/Components/Navbar';
+// import Navbar from '@/Components/Navbar';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import Navbar from '@/Components/Navbar';
 
 
 

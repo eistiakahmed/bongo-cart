@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user)
+  // console.log(user.photoURL);
 
   const handleUser = () => {
     logOut()
@@ -39,7 +39,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="bg-base-100 shadow-sm">
+    <div className="bg-base-100 shadow-md">
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -84,7 +84,12 @@ export default function Navbar() {
                 referrerPolicy="no-referrer"
                 className="w-[45px] h-[45px] rounded-full border object-cover"
               />
-              <button onClick={handleUser}>Logout</button>
+              <button
+                onClick={handleUser}
+                className="btn rounded-4xl bg-red-500 text-white"
+              >
+                Logout
+              </button>
             </div>
           ) : (
             <Link href="/login">
