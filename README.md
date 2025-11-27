@@ -9,6 +9,8 @@ BongoCart is a lightweight e-commerce prototype built with Next.js, where users 
 
 🌐 **Live Website:** [https://bongo-cart-bd.vercel.app/](https://bongo-cart-bd.vercel.app/)
 📦 **GitHub Repo:** [https://github.com/eistiakahmed/bongo-cart](https://github.com/eistiakahmed/bongo-cart)
+📦 **GitHub Backend Repo:** [https://github.com/eistiakahmed/bongo-cart-backend.git](https://github.com/eistiakahmed/bongo-cart-backend.git)
+
 
 [![Live on Vercel](https://img.shields.io/badge/Live%20On-Vercel-black?logo=vercel)](https://bongo-cart-bd.vercel.app/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/eistiakahmed/bongo-cart)
