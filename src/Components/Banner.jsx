@@ -7,23 +7,26 @@ export default function Banner() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center px-6 py-20 gap-10">
         {/* Text Section */}
         <div>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
             Elevate Your Style
             <br />
             This Season
           </h1>
 
-          <p className="text-lg text-gray-600 mt-4 mb-8 max-w-md">
+          <p className="lg:text-lg text-gray-600 mt-4 mb-8 max-w-md">
             Discover exclusive collections of modern fashion wear. Trendy
             outfits crafted for comfort and elegance.
           </p>
 
           <div className="flex gap-4">
-            <Link href='/products' className="bg-red-500 text-white font-semibold px-6 py-3 rounded-4xl hover:bg-red-800 transition">
+            <Link
+              href="/products"
+              className="bg-red-500 text-sm lg:text-base text-white font-semibold px-6 py-3 rounded-4xl hover:bg-red-800 transition hover:scale-105 duration-200"
+            >
               Shop Now
             </Link>
 
-            <button className="border border-red-500 text-red-500 font-semibold px-6 py-3 rounded-4xl hover:bg-red-500 hover:text-white transition">
+            <button className="border border-red-500 text-red-500 text-sm lg:text-base font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-4xl hover:bg-red-500 hover:text-white transition hover:scale-105 duration-200">
               View Lookbook
             </button>
           </div>

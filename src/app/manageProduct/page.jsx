@@ -36,7 +36,7 @@ export default function ManageProductPage() {
     fetchProducts();
   }, [user,axiosSecure]);
 
-  // if (!loading) return <p className="text-center mt-10">Loading...</p>;
+  
 
   return (
     <ProtectedRoute>

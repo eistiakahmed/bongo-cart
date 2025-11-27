@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '@/Context/AuthContext';
 import useAxiosSecure from '@/hooks/useAxiosSecure';
 import toast, { Toaster } from 'react-hot-toast';
+import Spinner from '@/Components/Spinner';
 
 export default function UpdateProductPage() {
   const { id } = useParams();
@@ -50,7 +51,7 @@ export default function UpdateProductPage() {
     }
   };
 
-  if (!product) return <p className="text-center mt-10">Loading...</p>;
+  if (!product) return <p className="flex justify-center mt-10"><Spinner /></p>;
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white my-10 rounded-4xl">

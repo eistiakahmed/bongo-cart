@@ -61,46 +61,46 @@ export default async function ProductDetails({ params }) {
           </div>
 
           <div>
-            <p className="text-3xl font-extrabold text-black tracking-wide flex items-center gap-2">
-              <span>${price}</span>
-              <span className="text-lg text-gray-600 font-semibold">
-                {currency}
-              </span>
+            <p className="text-3xl font-bold text-black tracking-wide flex items-center gap-2">
+              Price: <span>{price}</span>
+              {currency}
             </p>
           </div>
 
-          <div>
-            <button className="px-7 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-all">
-              Buy Now
-            </button>
-          </div>
-
           <div className="bg-red-50 border border-red-500 rounded-xl p-6 text-gray-700 text-base md:text-lg shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">Product Details</h2>
+            <h2 className="text-2xl font-bold mb-4">Product Details</h2>
             <div className="grid grid-cols-2 gap-y-3 gap-x-6">
-              <p className="font-medium">Brand:</p> <p>{brand}</p>
-              <p className="font-medium">Category:</p> <p>{category}</p>
-              <p className="font-medium">Stock:</p>
-              <p className="flex items-center gap-2">
+              <p className="font-semibold">Brand:</p>{' '}
+              <p className="font-medium">{brand}</p>
+              <p className="font-semibold">Category:</p>{' '}
+              <p className="font-medium">{category}</p>
+              <p className="font-semibold">Stock:</p>
+              <p className="flex items-center gap-2 font-medium">
                 <span
-                  className={`h-3 w-3 rounded-full ${
+                  className={`h-3 w-3  rounded-full ${
                     stockStatus === 'In Stock' ? 'bg-green-500' : 'bg-red-500'
                   }`}
                 />
                 {stockStatus}
               </p>
-              <p className="font-medium">Material:</p> <p>{material}</p>
-              <p className="font-medium">Wash Care:</p> <p>{washCare}</p>
-              <p className="font-medium">Origin:</p> <p>{origin}</p>
-              <p className="font-medium">Return Policy:</p>{' '}
-              <p>{returnPolicy}</p>
-              <p className="font-medium">Product Code:</p> <p>{productCode}</p>
-              <p className="font-medium">Date Added:</p> <p>{dateAdded}</p>
-              <p className="font-medium">Email:</p> <p>{email}</p>
+              <p className="font-semibold">Material:</p>{' '}
+              <p className="font-medium">{material}</p>
+              <p className="font-semibold">Wash Care:</p>{' '}
+              <p className="font-medium">{washCare}</p>
+              <p className="font-semibold">Origin:</p>{' '}
+              <p className="font-medium">{origin}</p>
+              <p className="font-semibold">Return Policy:</p>{' '}
+              <p className="font-medium">{returnPolicy}</p>
+              <p className="font-semibold">Product Code:</p>{' '}
+              <p className="font-medium">{productCode}</p>
+              <p className="font-semibold">Date Added:</p>{' '}
+              <p className="font-medium">{dateAdded}</p>
+              <p className="font-semibold">Email:</p>{' '}
+              <p className="font-medium">{email}</p>
             </div>
           </div>
 
-          <p className="text-gray-700 text-lg leading-relaxed border-t pt-5">
+          <p className="text-gray-700 text-lg leading-relaxed border-t pt-5 font-semibold">
             {fullDescription}
           </p>
         </div>

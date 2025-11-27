@@ -25,7 +25,8 @@ export default function SearchProducts({ initialData }) {
       const res = await fetch(
         `https://bongo-cart.vercel.app/searchName?search=${encodeURIComponent(
           search_text
-        )}`
+        )}`,
+        { cache: 'no-store' }
       );
 
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
