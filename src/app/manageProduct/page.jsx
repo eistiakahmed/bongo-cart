@@ -42,7 +42,7 @@ export default function ManageProductPage() {
     <ProtectedRoute>
       <Container>
         <Toaster />
-        <h1 className="text-4xl  font-extrabold text-center mb-8 bg-linear-to-r from-red-600 to-red-300 text-transparent bg-clip-text">
+        <h1 className="text-4xl  font-extrabold text-center mb-8  text-black">
           Total Products: {products.length}
         </h1>
         <div className="overflow-x-auto shadow-md rounded-lg border border-gray-200">

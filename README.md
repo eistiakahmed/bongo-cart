@@ -1,7 +1,7 @@
 # BongoCart
 
-**Short description (বাংলা):**
-BongoCart holo ekta lightweight e‑commerce prototype built with **Next.js** — ekjon user dress collection browse korte parbe, login korle product add/delete/view korte parbe, ebong joto gula product add korbe shegula manage korte parbe.
+**Short description :**
+BongoCart is a lightweight e-commerce prototype built with Next.js, where users can browse a collection of clothing products. After logging in, users can add new products, view detailed information, update or delete their own products, and manage all items they’ve posted.
 
 ---
 
@@ -12,6 +12,7 @@ BongoCart holo ekta lightweight e‑commerce prototype built with **Next.js** �
 
 [![Live on Vercel](https://img.shields.io/badge/Live%20On-Vercel-black?logo=vercel)](https://bongo-cart-bd.vercel.app/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/eistiakahmed/bongo-cart)
+[![Live Server](https://bongo-cart.vercel.app/)](https://bongo-cart.vercel.app/)
 
 ---
 
@@ -91,10 +92,11 @@ Create a `.env.local` at project root and add Firebase / API keys required by yo
 NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
 
-> Replace above keys with your real Firebase config and backend URL.
 
 4. Run development server
 

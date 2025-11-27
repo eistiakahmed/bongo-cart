@@ -18,6 +18,7 @@ export default async function AllProductPage() {
           abayas, and party outfits at the best price in Bangladesh. Find the
           perfect fashion for every occasion!
         </p>
+        
 
         {/* Search Component */}
         <SearchProducts initialData={initialData} />
