@@ -65,9 +65,9 @@ export default function Navbar() {
               {links}
             </ul>
           </div>
-          <a className="font-bold text-2xl">
+          <Link href='/' className="font-bold text-2xl">
             Bongo<span className="text-red-400">Cart</span>
-          </a>
+          </Link>
         </div>
 
         <div className="navbar-center hidden lg:flex">
