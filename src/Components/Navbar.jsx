@@ -1,24 +1,24 @@
-'use client'; 
+'use client';
 
 import { AuthContext } from '@/Context/AuthContext';
 import Button from '@/Shared/Button';
 import Link from 'next/link';
-import React, { use, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
-  // console.log(user.photoURL);
+  const [showUserInfo, setShowUserInfo] = useState(false);
 
   const handleUser = () => {
     logOut()
-    .then(() => {
-      toast.success('logout Successfully')
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
+      .then(() => {
+        toast.success('Logout Successfully');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const links = (
     <>
@@ -28,7 +28,6 @@ export default function Navbar() {
       <li>
         <Link href="/products">All Products</Link>
       </li>
-
       <li>
         <Link href="/addProducts">Add Product</Link>
       </li>
@@ -77,15 +76,20 @@ export default function Navbar() {
 
         <div className="navbar-end">
           {user ? (
-            <div className="flex items-center gap-3">
+            <div className="relative flex items-center gap-3">
               <img
                 src={user?.photoURL}
                 alt="User"
                 referrerPolicy="no-referrer"
-                className="w-[45px] h-[45px] rounded-full border object-cover tooltip-bottom"
-                data-tip={user?.displayName}
-                
+                className="w-[45px] h-[45px] rounded-full border object-cover cursor-pointer"
+                onClick={() => setShowUserInfo(!showUserInfo)}
               />
+              {showUserInfo && (
+                <div className="absolute right-0 top-14 w-56 bg-white shadow-md rounded-lg p-3 text-sm z-20">
+                  <p className="font-semibold">{user.displayName}</p>
+                  <p className="text-gray-600 break-all">{user.email}</p>
+                </div>
+              )}
               <button
                 onClick={handleUser}
                 className="btn rounded-4xl bg-red-500 text-white"
