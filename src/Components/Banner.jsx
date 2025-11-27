@@ -23,7 +23,7 @@ export default function Banner() {
               Shop Now
             </Link>
 
-            <button className="border border-red-500 text-red-500 font-semibold px-6 py-3 rounded-4xl hover:bg-red-500 hover:text-red-600 transition">
+            <button className="border border-red-500 text-red-500 font-semibold px-6 py-3 rounded-4xl hover:bg-red-500 hover:text-white transition">
               View Lookbook
             </button>
           </div>
