@@ -16,7 +16,7 @@ export default function ManageProductPage() {
   const axiosSecure = useAxiosSecure();
   const router = useRouter();
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user?.email) return;
