@@ -17,30 +17,37 @@ export default function UpdateProductPage() {
   // Load existing product data
   useEffect(() => {
     const getProduct = async () => {
-      const res = await axiosSecure.get(`/fashion/${id}`);
-      setProduct(res.data);
+      try {
+        const res = await axiosSecure.get(`/fashion/${id}`);
+        setProduct(res.data);
+      } catch (err) {
+        toast.error('Failed to load product data');
+      }
     };
     getProduct();
-  }, [id]);
+  }, [id, axiosSecure]);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+
+    const formData = new FormData(e.target);
+
     const updatedData = {
-      title: e.target.title.value,
-      bannerImage: e.target.bannerImage.value,
-      shortDescription: e.target.shortDescription.value,
-      fullDescription: e.target.fullDescription.value,
-      category: e.target.category.value,
-      brand: e.target.brand.value,
-      price: e.target.price.value,
-      stockStatus: e.target.stockStatus.value,
-      material: e.target.material.value,
-      washCare: e.target.washCare.value,
-      origin: e.target.origin.value,
-      returnPolicy: e.target.returnPolicy.value,
-      productCode: e.target.productCode.value,
-      dateAdded: e.target.dateAdded.value,
-      email: e.target.email.value,
+      title: formData.get('title'),
+      bannerImage: formData.get('bannerImage'),
+      shortDescription: formData.get('shortDescription'),
+      fullDescription: formData.get('fullDescription'),
+      category: formData.get('category'),
+      brand: formData.get('brand'),
+      price: formData.get('price'),
+      stockStatus: formData.get('stockStatus'),
+      material: formData.get('material'),
+      washCare: formData.get('washCare'),
+      origin: formData.get('origin'),
+      returnPolicy: formData.get('returnPolicy'),
+      productCode: formData.get('productCode'),
+      dateAdded: formData.get('dateAdded'),
+      email: formData.get('email'),
     };
 
     try {
@@ -51,7 +58,12 @@ export default function UpdateProductPage() {
     }
   };
 
-  if (!product) return <p className="flex justify-center mt-10"><Spinner /></p>;
+  if (!product)
+    return (
+      <div className="flex justify-center mt-10">
+        <Spinner />
+      </div>
+    );
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white my-10 rounded-4xl">
@@ -59,6 +71,7 @@ export default function UpdateProductPage() {
       <h1 className="text-4xl font-bold mb-4 text-center">Update Product</h1>
 
       <form onSubmit={handleUpdate} className="space-y-4">
+        {/* Title */}
         <div>
           <label className="block font-medium">Title:</label>
           <input
@@ -69,6 +82,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Banner Image */}
         <div>
           <label className="block font-medium">Banner Image URL:</label>
           <input
@@ -79,6 +93,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Short Description */}
         <div>
           <label className="block font-medium">Short Description:</label>
           <input
@@ -89,6 +104,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Full Description */}
         <div>
           <label className="block font-medium">Full Description:</label>
           <textarea
@@ -99,6 +115,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Category */}
         <div>
           <label className="block font-medium mb-1">Category:</label>
           <select
@@ -116,6 +133,7 @@ export default function UpdateProductPage() {
           </select>
         </div>
 
+        {/* Brand */}
         <div>
           <label className="block font-medium">Brand:</label>
           <input
@@ -126,6 +144,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Price */}
         <div>
           <label className="block font-medium">Price:</label>
           <input
@@ -136,6 +155,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Material */}
         <div>
           <label className="block font-medium">Material:</label>
           <input
@@ -146,6 +166,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Wash Care */}
         <div>
           <label className="block font-medium">Wash Care:</label>
           <input
@@ -156,6 +177,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Origin */}
         <div>
           <label className="block font-medium">Origin:</label>
           <input
@@ -166,6 +188,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Return Policy */}
         <div>
           <label className="block font-medium">Return Policy:</label>
           <input
@@ -176,6 +199,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Product Code */}
         <div>
           <label className="block font-medium">Product Code:</label>
           <input
@@ -186,6 +210,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Date Added */}
         <div>
           <label className="block font-medium">Date Added:</label>
           <input
@@ -196,6 +221,7 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Email */}
         <div>
           <label className="block font-medium">Email:</label>
           <input
@@ -206,9 +232,10 @@ export default function UpdateProductPage() {
           />
         </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 w-full rounded-4xl font-bold"
+          className="bg-red-500 text-white px-4 py-2 hover:bg-red-600 w-full rounded-4xl font-bold btn"
         >
           Update Product
         </button>
