@@ -27,11 +27,10 @@ export default function ManageProductPage() {
         const res = await axiosSecure.get(`/addProducts?email=${user.email}`);
         console.log('Fetched products:', res.data);
         setProducts(res.data);
+        setLoading(false);
       } catch (err) {
         console.error('Fetch error:', err);
         toast.error('Failed to fetch products');
-      } finally {
-        setLoading(false);
       }
     };
 
