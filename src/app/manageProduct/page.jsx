@@ -16,18 +16,18 @@ export default function ManageProductPage() {
   const router = useRouter();
 
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user?.email) return;
 
     const fetchProducts = async () => {
-      setLoading(true);
+      // setLoading(true);
       try {
         const res = await axiosSecure.get(`/addProducts?email=${user.email}`);
         console.log('Fetched products:', res.data);
         setProducts(res.data);
-        setLoading(false);
+        // setLoading(false);
       } catch (err) {
         console.error('Fetch error:', err);
         toast.error('Failed to fetch products');
@@ -37,15 +37,15 @@ export default function ManageProductPage() {
     fetchProducts();
   }, [user, axiosSecure]);
 
-  if (loading) {
-    return (
-      <Container>
-        <p className="text-center text-gray-500 py-10 text-lg">
-          Loading products...
-        </p>
-      </Container>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <Container>
+  //       <p className="text-center text-gray-500 py-10 text-lg">
+  //         Loading products...
+  //       </p>
+  //     </Container>
+  //   );
+  // }
 
   return (
     <ProtectedRoute>
