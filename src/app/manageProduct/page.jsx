@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useContext, useEffect, useState } from 'react';
@@ -15,18 +14,21 @@ export default function ManageProductPage() {
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
   const router = useRouter();
+
   const [products, setProducts] = useState([]);
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user?.email) return;
 
     const fetchProducts = async () => {
+      setLoading(true);
       try {
         const res = await axiosSecure.get(`/addProducts?email=${user.email}`);
+        console.log('Fetched products:', res.data);
         setProducts(res.data);
-        setLoading(false)
       } catch (err) {
+        console.error('Fetch error:', err);
         toast.error('Failed to fetch products');
       } finally {
         setLoading(false);
@@ -34,17 +36,26 @@ export default function ManageProductPage() {
     };
 
     fetchProducts();
-  }, [user,axiosSecure]);
+  }, [user, axiosSecure]);
 
-  
+  if (loading) {
+    return (
+      <Container>
+        <p className="text-center text-gray-500 py-10 text-lg">
+          Loading products...
+        </p>
+      </Container>
+    );
+  }
 
   return (
     <ProtectedRoute>
       <Container>
         <Toaster />
-        <h1 className="text-4xl  font-extrabold text-center mb-8  text-black">
+        <h1 className="text-4xl font-extrabold text-center mb-8 text-black">
           Total Products: {products.length}
         </h1>
+
         <div className="overflow-x-auto shadow-md rounded-lg border border-gray-200">
           <table className="min-w-full text-sm text-gray-700">
             <thead>
@@ -91,14 +102,14 @@ export default function ManageProductPage() {
                           onClick={() =>
                             router.push(`/product/update/${p._id}`)
                           }
-                          className="p-2 bg-blue-100 hover:bg-blue-200 rounded-4xl hover:scale-105 transition  duration-200"
+                          className="p-2 bg-blue-100 hover:bg-blue-200 rounded-4xl hover:scale-105 transition duration-200"
                         >
                           <FaEdit className="text-blue-600" size={20} />
                         </button>
 
                         <button
                           onClick={() => router.push(`/products/${p._id}`)}
-                          className="p-2 bg-yellow-100  hover:bg-yellow-200 rounded-4xl hover:scale-105 transition  duration-200"
+                          className="p-2 bg-yellow-100 hover:bg-yellow-200 rounded-4xl hover:scale-105 transition duration-200"
                         >
                           <FaEye className="text-yellow-600" size={20} />
                         </button>
@@ -112,11 +123,12 @@ export default function ManageProductPage() {
                                 products.filter((prod) => prod._id !== p._id)
                               );
                               toast.success('Deleted successfully');
-                            } catch {
+                            } catch (err) {
+                              console.error('Delete error:', err);
                               toast.error('Delete failed');
                             }
                           }}
-                          className="p-2 bg-red-100 hover:bg-red-200 rounded-4xl hover:scale-105 transition  duration-200"
+                          className="p-2 bg-red-100 hover:bg-red-200 rounded-4xl hover:scale-105 transition duration-200"
                         >
                           <RiDeleteBin5Line
                             className="text-red-600"
